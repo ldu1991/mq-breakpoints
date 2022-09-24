@@ -81,8 +81,8 @@ var MQBreakpoints = /*#__PURE__*/function () {
         xl: 1200,
         xxl: 1400
       },
-      deferSetup: false,
-      listenerResize: false
+      listenerResize: false,
+      deferSetup: false
     };
     this.params = Object.assign(this.defaults, options);
     this.media = media;
@@ -140,17 +140,26 @@ var MQBreakpoints = /*#__PURE__*/function () {
       }
     }
   }, {
+    key: "setupInit",
+    value: function setupInit() {
+      if (this.params.setup && typeof this.params.setup === 'function') {
+        this.params.setup();
+      }
+    }
+  }, {
     key: "init",
     value: function init() {
       var _this3 = this;
 
-      if (this.params.setup && typeof this.params.setup === 'function') {
-        this.params.setup();
+      if (this.params.deferSetup) {
+        if (this.mq.matches) {
+          this.setupInit();
+        }
+      } else {
+        this.setupInit();
       }
 
-      if (!this.params.deferSetup) {
-        this.handleMatchMedia();
-      }
+      this.handleMatchMedia();
 
       if (this.params.listenerResize) {
         window.addEventListener('resize', function () {
