@@ -4,18 +4,22 @@
     "description": "MQBreakpoints is a lightweight, pure JavaScript library for responding to CSS media queries.",
     "main": "./dist/mq-breakpoints.min.js",
     "keywords": [
-        "breakpoints"
+        "breakpoint",
+        "breakpoints",
+        "media query",
+        "media queries",
+        "matchMedia"
     ],
     "author": "Denis Lipatov <ldu2601@gmail.com>",
     "license": "BSD",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "git+https://github.com/ldu1991/mq-breakpoints.git"
     },
     "bugs": {
-        "url": ""
+        "url": "https://github.com/ldu1991/mq-breakpoints/issues"
     },
-    "homepage": "",
+    "homepage": "https://github.com/ldu1991/mq-breakpoints#readme",
     "scripts": {
         "start": "webpack serve",
         "build": "webpack --env production",
